@@ -1,0 +1,28 @@
+name: Lock expired demos
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Lock expired, unpaid sites
+        run: |
+          PAID=$(grep -v '^#' paid.txt | grep -v '^\s*$' | paste -sd, -)
+          python3 tools/lock.py --paid "$PAID"
+      - name: Publish
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "demo-lock-bot"
+            git config user.email "youssef.sameh@primeegy.com"
+            git commit -am "Lock expired demos"
+            git push origin main
+          fi
+          git push --force origin main:gh-pages

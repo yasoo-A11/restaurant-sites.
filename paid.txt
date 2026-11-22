@@ -1,0 +1,1 @@
+# One slug per line: restaurants that paid. Their sites never get locked.
