@@ -261,7 +261,7 @@ const H=[null, null, null, null, null, null, null],G=["img/n-chxwaffles0.webp", 
 const mins=t=>{const[a,b]=t.split(':').map(Number);return a*60+b};
 const f12=t=>{let[h,m]=t.split(':').map(Number);if(h===24)return'midnight';const ap=h<12?'AM':'PM';h=h%12||12;return h+(m?':'+String(m).padStart(2,'0'):'')+' '+ap};
 const DN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-try{if(UNK){document.getElementById('stxt').textContent='Call for today’s hours';document.getElementById('today').textContent='call ahead';document.getElementById('today2').textContent='call for hours';document.getElementById('bart').textContent='Hours vary, call to check';throw 0}
+try{if(UNK){document.getElementById('stxt').textContent='Email us for today’s hours';document.getElementById('today').textContent='email ahead';document.getElementById('today2').textContent='email for hours';document.getElementById('bart').textContent='Hours vary, email to check';throw 0}
  const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
  const g=k=>p.find(x=>x.type===k).value,d=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),now=+g('hour')*60+ +g('minute'),h=H[d];
  const st=document.getElementById('status'),tx=document.getElementById('stxt'),bar=document.getElementById('bar'),bt=document.getElementById('bart');
