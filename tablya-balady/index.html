@@ -247,6 +247,44 @@ main{display:flex;flex-direction:column}
 @keyframes p-rise{to{opacity:1;transform:none}}
 @keyframes p-wipe{to{clip-path:inset(0 round var(--r))}}
 @keyframes p-zoom{to{transform:none}}
+
+/* polish v2 */
+.prog{position:fixed;left:0;top:0;height:3px;width:0;background:var(--c3);z-index:120;pointer-events:none}
+.item{position:relative}.item .ph{cursor:zoom-in}
+.add{position:absolute;right:10px;bottom:10px;width:40px;height:40px;border-radius:50%;border:0;background:var(--c3);color:#17110f;font:800 22px/1 system-ui,sans-serif;cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 18px -8px rgba(0,0,0,.5);transition:transform .2s var(--ease),background .2s}
+.add:hover{transform:scale(1.12) rotate(90deg)}.add:active{transform:scale(.92)}.add.ok{background:#36d67e}
+.item .tx{padding-right:48px}
+.mv-print1 .item .tx,.mv-print .item .tx{padding-right:52px}
+.spot{position:relative;min-height:min(82vh,680px);display:grid;align-items:end;color:#fff;overflow:hidden;background:var(--c1d);isolation:isolate}
+.spot>img{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;z-index:-2;will-change:transform}
+.spot::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.35) 55%,rgba(0,0,0,.05)),linear-gradient(0deg,rgba(0,0,0,.55),transparent 45%)}
+.spot .wrap{width:100%;padding-block:clamp(40px,7vw,96px)}
+.spot .lead{font-weight:700;color:var(--c3);margin:0 0 10px;font-size:clamp(16px,1.6vw,20px)}
+.spot h2{font-size:clamp(46px,9vw,128px);line-height:.92;max-width:11ch;margin:0 0 18px;text-shadow:0 4px 40px rgba(0,0,0,.4)}
+.spot p.d{font-size:clamp(17px,1.8vw,22px);max-width:36ch;margin:0 0 26px;opacity:.95}
+.ordfab{position:fixed;right:18px;bottom:18px;z-index:60;display:none;align-items:center;gap:10px;min-height:54px;padding:0 20px;border-radius:999px;border:0;background:var(--c1);color:#fff;font:inherit;font-weight:800;cursor:pointer;box-shadow:0 16px 36px -12px rgba(0,0,0,.6),inset 0 0 0 2px var(--c3)}
+.ordfab.on{display:inline-flex}.ordfab b{background:var(--c3);color:#17110f;border-radius:999px;min-width:26px;height:26px;display:grid;place-items:center;font-size:14px;padding:0 7px}
+.ordfab.bump{animation:p-bump .4s var(--ease)}
+@keyframes p-bump{40%{transform:scale(1.12)}}
+@media(max-width:600px){.ordfab{bottom:calc(78px + env(safe-area-inset-bottom));right:10px}}
+dialog.dl{border:0;padding:0;border-radius:24px;background:var(--bg);color:var(--ink);width:min(94vw,480px);max-height:88vh;box-shadow:0 40px 100px -30px rgba(0,0,0,.7);overflow:hidden}
+dialog.dl::backdrop{background:rgba(10,8,6,.62);backdrop-filter:blur(4px)}
+dialog.dl[open]{display:flex;flex-direction:column;animation:p-pop .28s var(--ease)}
+@keyframes p-pop{from{opacity:0;transform:translateY(18px) scale(.97)}}
+.dl header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px 12px}.dl header h3{font-size:26px}
+.dl .cl{width:40px;height:40px;border-radius:50%;border:0;background:var(--soft);color:var(--ink);font-size:20px;cursor:pointer}
+.dl .bd{padding:0 20px 8px;overflow:auto}
+.dl .ft{padding:14px 20px 20px;display:grid;gap:10px;border-top:1px solid var(--line)}
+.dl .ft .btn{justify-content:center}.dl .ft small{color:var(--mut);text-align:center}
+.wa{background:#1faa59!important;color:#fff!important;box-shadow:0 10px 24px -12px #1faa59!important}
+.ol{list-style:none;margin:0;padding:0}.ol li{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line)}
+.ol img{width:52px;height:52px;border-radius:12px;object-fit:cover}.ol b{display:block;line-height:1.25}
+.qty{display:inline-flex;align-items:center;gap:6px}.qty button{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:17px;cursor:pointer}.qty span{min-width:20px;text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
+.dl .empty{color:var(--mut);padding:18px 0 22px;margin:0}
+.dv img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+.dv .bd{padding:18px 20px 6px}.dv h3{font-size:30px;margin-bottom:8px}.dv p{margin:0;color:var(--mut)}
+@media(pointer:fine) and (prefers-reduced-motion:no-preference){.fv-bento .bento{perspective:1200px}.fv-bento .sg{transition:transform .25s var(--ease);transform-style:preserve-3d}}
+@media(prefers-reduced-motion:reduce){.spot>img{top:0;height:100%}}
 </style></head><body class="t-khayamiya hv-stack mv-print1 fv-polaroid nv-light so-photos-first">
 <a class="skip" href="#main">Skip to content</a>
 <div class="demo-bar" id="demobar">Free demo made for Tablya Balady, available until <b>December 2</b>.</div>
@@ -275,6 +313,7 @@ main{display:flex;flex-direction:column}
 <main id="main"><div class="mq" aria-hidden="true"><div>Koshari ✦ Ful medames ✦ Ta&#x27;ameya ✦ Hawawshi ✦ Stuffed vine leaves ✦ Lentil soup ✦ Kofta ✦ Grilled chicken ✦ Basbousa ✦ Rice pudding ✦ Koshari ✦ Ful medames ✦ Ta&#x27;ameya ✦ Hawawshi ✦ Stuffed vine leaves ✦ Lentil soup ✦ Kofta ✦ Grilled chicken ✦ Basbousa ✦ Rice pudding ✦ </div></div>
 <section class="band" id="favourites"><div class="wrap"><div class="hd"><h2>House Favourites</h2><p>The plates regulars order again and again.</p></div><div class="bento"><figure class="sg s0"><img src="img/w-koshari2.webp" width="900" height="600" alt="Koshari"><figcaption><span class="ct">Street food</span><b>Koshari</b></figcaption></figure><figure class="sg s1"><img src="img/w-grapeleaves1.webp" width="900" height="600" alt="Stuffed vine leaves"><figcaption><span class="ct">Home cooking</span><b>Stuffed vine leaves</b></figcaption></figure><figure class="sg s2"><img src="img/w-grilledchicken3.webp" width="900" height="600" alt="Kofta"><figcaption><span class="ct">From the grill</span><b>Kofta</b></figcaption></figure><figure class="sg s3"><img src="img/w-basbousa2.webp" width="900" height="600" alt="Basbousa"><figcaption><span class="ct">Sweets</span><b>Basbousa</b></figcaption></figure><figure class="sg s4"><img src="img/w-fulmedames0.webp" width="900" height="600" alt="Ful medames"><figcaption><span class="ct">Street food</span><b>Ful medames</b></figcaption></figure></div></div></section>
 
+<section class="spot" aria-label="The dish to try first"><img src="img/w-grapeleaves1.webp" alt="Stuffed vine leaves" width="900" height="600" loading="lazy"><div class="wrap"><p class="lead">If you only order one thing</p><h2>Stuffed vine leaves</h2><p class="d">Rice, herbs and lemon, rolled by hand.</p><button class="btn main" type="button" data-add="Stuffed vine leaves">Add to my order</button></div></section>
 <section class="menu" id="menu"><div class="wrap" style="padding-top:clamp(56px,7vw,96px)"><div class="hd"><h2>The Menu</h2><p>Pick a section or search for a dish.</p></div></div>
 <div class="mbar"><div class="wrap"><div class="cats" id="cats"><a href="#c-street-food" data-c="c-street-food">Street food</a><a href="#c-home-cooking" data-c="c-home-cooking">Home cooking</a><a href="#c-from-the-grill" data-c="c-from-the-grill">From the grill</a><a href="#c-sweets" data-c="c-sweets">Sweets</a></div><label class="srch"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><input id="q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="Search dishes, e.g. burger…" aria-label="Search the menu"></label></div></div>
 <div class="wrap" style="padding-bottom:clamp(56px,7vw,96px)"><section class="cat" id="c-street-food"><h3>Street food</h3><div class="items"><article class="item" data-q="koshari rice, lentils and pasta with spicy tomato sauce and crispy onions"><div class="ph"><img src="img/w-koshari2.webp" alt="Koshari" width="600" height="400"></div><div class="tx"><div class="nm"><h4>Koshari</h4><i></i></div><p>Rice, lentils and pasta with spicy tomato sauce and crispy onions</p></div></article><article class="item" data-q="ful medames slow-cooked fava beans with oil, lemon and cumin"><div class="ph"><img src="img/w-fulmedames0.webp" alt="Ful medames" width="600" height="400"></div><div class="tx"><div class="nm"><h4>Ful medames</h4><i></i></div><p>Slow-cooked fava beans with oil, lemon and cumin</p></div></article><article class="item" data-q="ta&#x27;ameya egyptian falafel made with fava beans and fresh herbs"><div class="ph"><img src="img/w-falafel1.webp" alt="Ta&#x27;ameya" width="600" height="400"></div><div class="tx"><div class="nm"><h4>Ta&#x27;ameya</h4><i></i></div><p>Egyptian falafel made with fava beans and fresh herbs</p></div></article><article class="item" data-q="hawawshi spiced minced beef baked inside baladi bread"><div class="ph"><img src="img/w-hawawshi1.webp" alt="Hawawshi" width="600" height="400"></div><div class="tx"><div class="nm"><h4>Hawawshi</h4><i></i></div><p>Spiced minced beef baked inside baladi bread</p></div></article></div></section><section class="cat" id="c-home-cooking"><h3>Home cooking</h3><div class="items"><article class="item" data-q="stuffed vine leaves rice, herbs and lemon, rolled by hand"><div class="ph"><img src="img/w-grapeleaves1.webp" alt="Stuffed vine leaves" width="600" height="400"></div><div class="tx"><div class="nm"><h4>Stuffed vine leaves</h4><i></i></div><p>Rice, herbs and lemon, rolled by hand</p></div></article><article class="item" data-q="lentil soup red lentils with cumin and toasted bread"><div class="ph"><img src="img/w-lentilsoup0.webp" alt="Lentil soup" width="600" height="400"></div><div class="tx"><div class="nm"><h4>Lentil soup</h4><i></i></div><p>Red lentils with cumin and toasted bread</p></div></article></div></section><section class="cat" id="c-from-the-grill"><h3>From the grill</h3><div class="items"><article class="item" data-q="kofta charcoal-grilled, with tahini and salad"><div class="ph"><img src="img/w-grilledchicken3.webp" alt="Kofta" width="600" height="400"></div><div class="tx"><div class="nm"><h4>Kofta</h4><i></i></div><p>Charcoal-grilled, with tahini and salad</p></div></article><article class="item" data-q="grilled chicken half a chicken, marinated and charred"><div class="ph"><img src="img/w-grilledchicken2.webp" alt="Grilled chicken" width="600" height="400"></div><div class="tx"><div class="nm"><h4>Grilled chicken</h4><i></i></div><p>Half a chicken, marinated and charred</p></div></article></div></section><section class="cat" id="c-sweets"><h3>Sweets</h3><div class="items"><article class="item" data-q="basbousa semolina cake soaked in syrup"><div class="ph"><img src="img/w-basbousa2.webp" alt="Basbousa" width="600" height="400"></div><div class="tx"><div class="nm"><h4>Basbousa</h4><i></i></div><p>Semolina cake soaked in syrup</p></div></article><article class="item" data-q="rice pudding roz bel laban, cold and creamy"><div class="ph"><img src="img/w-ricepudding0.webp" alt="Rice pudding" width="600" height="400"></div><div class="tx"><div class="nm"><h4>Rice pudding</h4><i></i></div><p>Roz bel laban, cold and creamy</p></div></article></div></section><p class="empty" id="empty" aria-live="polite" hidden>No dishes match that search. Try a shorter word, like “pizza”.</p><p class="note">Sample menu and photos for this demo. Send us your menu, prices and food photos and we swap them in.</p></div></section>
@@ -331,4 +370,44 @@ function show(e,i){setTimeout(function(){e.classList.add('in');setTimeout(functi
 var io=new IntersectionObserver(function(en){en.forEach(function(x,i){if(x.isIntersecting||x.boundingClientRect.top<0){show(x.target,i);io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
 els.forEach(function(e){io.observe(e)});
 var t;addEventListener('scroll',function(){if(t)return;t=setTimeout(function(){t=0;var h=innerHeight;els.forEach(function(e){if(!e.classList.contains('in')&&e.getBoundingClientRect().top<h)show(e,0)})},200)},{passive:true});
+})();</script><script>(function(){
+var WA="201094973795",TEL="tel:+201094973795",NAME="Tablya Balady",KEY='ord-'+location.pathname,cart={};
+try{cart=JSON.parse(sessionStorage.getItem(KEY)||'{}')}catch(e){}
+function save(){try{sessionStorage.setItem(KEY,JSON.stringify(cart))}catch(e){}}
+var $=function(s,r){return (r||document).querySelector(s)},items={};
+var pb=document.createElement('div');pb.className='prog';document.body.appendChild(pb);
+[].forEach.call(document.querySelectorAll('article.item'),function(a){
+ var n=$('h4',a).textContent,im=$('.ph img',a),d=$('.tx p',a);items[n]={img:im?im.getAttribute('src'):'',desc:d?d.textContent:''};
+ var b=document.createElement('button');b.type='button';b.className='add';b.textContent='+';b.setAttribute('aria-label','Add '+n+' to your order');b.dataset.add=n;a.appendChild(b);
+ var ph=$('.ph',a);if(ph){ph.tabIndex=0;ph.setAttribute('role','button');ph.setAttribute('aria-label','See '+n);ph.dataset.view=n}
+});
+document.body.insertAdjacentHTML('beforeend','<button class="ordfab" id="ofab" type="button">Your order <b id="ocnt">0</b></button>'+
+'<dialog class="dl" id="odl" aria-labelledby="oh"><header><h3 id="oh">Your order</h3><button class="cl" data-close aria-label="Close">×</button></header><div class="bd"><ul class="ol" id="ol"></ul><p class="empty" id="oem">Nothing here yet. Tap + next to a dish to add it.</p></div><div class="ft"><a class="btn main wa" id="osend" target="_blank" rel="noopener">Send order on WhatsApp</a><small id="onote"></small></div></dialog>'+
+'<dialog class="dl dv" id="vdl" aria-labelledby="vh"><img id="vi" alt=""><div class="bd"><h3 id="vh"></h3><p id="vd"></p></div><div class="ft"><button class="btn main" id="va" type="button">Add to order</button><button class="btn" data-close type="button" style="background:var(--soft);color:var(--ink)">Close</button></div></dialog>');
+var fab=$('#ofab'),odl=$('#odl'),vdl=$('#vdl'),send=$('#osend');
+function count(){var c=0;for(var k in cart)c+=cart[k];return c}
+function draw(){var c=count(),h='';$('#ocnt').textContent=c;fab.classList.toggle('on',c>0);
+ for(var k in cart){var it=items[k]||{};h+='<li><img src="'+(it.img||'')+'" alt=""><b>'+k.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</b><span class="qty"><button type="button" data-dec="'+k.replace(/"/g,'&quot;')+'" aria-label="One less">−</button><span>'+cart[k]+'</span><button type="button" data-inc="'+k.replace(/"/g,'&quot;')+'" aria-label="One more">+</button></span></li>'}
+ $('#ol').innerHTML=h;$('#oem').hidden=c>0;send.style.display=c>0?'':'none';
+ var t='Hello '+NAME+', I would like to order:\n';for(var k2 in cart)t+='• '+cart[k2]+' × '+k2+'\n';
+ if(WA){send.href='https://wa.me/'+WA+'?text='+encodeURIComponent(t);send.textContent='Send order on WhatsApp';$('#onote').textContent='Opens WhatsApp with your order written out. You confirm and pay with the restaurant.'}
+ else{send.href=TEL;send.classList.remove('wa');send.textContent='Call to place this order';$('#onote').textContent='Read your list to the restaurant when they pick up.'}
+}
+function add(n,btn){cart[n]=(cart[n]||0)+1;save();draw();fab.classList.remove('bump');void fab.offsetWidth;fab.classList.add('bump');if(btn&&btn.classList.contains('add')){btn.classList.add('ok');btn.textContent='✓';setTimeout(function(){btn.classList.remove('ok');btn.textContent='+'},900)}}
+var cur='';
+function view(n){var it=items[n];if(!it)return;cur=n;$('#vi').src=it.img;$('#vi').alt=n;$('#vh').textContent=n;$('#vd').textContent=it.desc;vdl.showModal()}
+document.addEventListener('click',function(e){var t=e.target.closest('[data-add],[data-view],[data-close],[data-inc],[data-dec]');if(!t)return;
+ if(t.dataset.add){add(t.dataset.add,t)}else if(t.dataset.view){view(t.dataset.view)}else if(t.hasAttribute('data-close')){t.closest('dialog').close()}
+ else if(t.dataset.inc){cart[t.dataset.inc]++;save();draw()}else if(t.dataset.dec){if(--cart[t.dataset.dec]<1)delete cart[t.dataset.dec];save();draw()}});
+document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.dataset&&e.target.dataset.view){e.preventDefault();view(e.target.dataset.view)}});
+[odl,vdl].forEach(function(d){d.addEventListener('click',function(e){if(e.target===d)d.close()})});
+fab.addEventListener('click',function(){odl.showModal()});$('#va').addEventListener('click',function(){add(cur);vdl.close()});
+draw();
+var sp=$('.spot>img'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches,tk=0;
+function onS(){tk=0;var h=document.documentElement,m=h.scrollHeight-innerHeight;pb.style.width=(m>0?scrollY/m*100:0)+'%';
+ if(sp&&!rm){var r=sp.parentNode.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){sp.style.transform='translate3d(0,'+((r.top+r.height/2-innerHeight/2)*-0.12).toFixed(1)+'px,0)'}}}
+addEventListener('scroll',function(){if(!tk)tk=requestAnimationFrame(onS)},{passive:true});onS();
+if(matchMedia('(pointer:fine)').matches&&!rm){[].forEach.call(document.querySelectorAll('.fv-bento .sg'),function(c){
+ c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.transform='rotateY('+(((e.clientX-r.left)/r.width-.5)*7).toFixed(2)+'deg) rotateX('+((.5-(e.clientY-r.top)/r.height)*7).toFixed(2)+'deg)'});
+ c.addEventListener('pointerleave',function(){c.style.transform=''})})}
 })();</script></body></html>
